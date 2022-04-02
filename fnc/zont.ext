@@ -1,0 +1,18 @@
+class ZONT {
+  class Functions {
+    file = "fnc";
+    class remoteExecCallback { };
+    class giveZeus { };
+    class initTeleportTerminals { };
+    class addTeleportTerminal { };
+    class showTextLC { };
+    class showStructuredTextLC { };
+    class addChatCommand { };
+    class removeAllVars { };
+    class getConst { };
+    class forceExit { };
+    class addReverse { };
+  };
+	#include "..\profiles_framework\zont.ext"
+	#include "..\database_framework\zont.ext"
+}

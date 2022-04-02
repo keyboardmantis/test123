@@ -1,0 +1,9 @@
+class Database {
+  file = "database_framework";
+  class bd_initBasic { };
+  class bd_initCustom { };
+  class bd_customRequest { };
+
+  class commitInfo { };
+  class retrieveCurators { };
+};

@@ -1,0 +1,125 @@
+disableChannels[] = {
+	{0, false, true}, //--- Global Chat
+	{1, false, true}, //--- Side Chat
+	{2, false, true}, //--- Command Chat
+	{3, false, true}, //--- Group Chat
+	{4, false, true}, //--- Vehicle Chat
+	{5, false, true}, //--- Direct Chat
+	{6, false, true} //--- System Chat
+};
+
+
+
+enableDebugConsole = 1; // 0 = disabled. 1 = admins, 2 = everybody. 0 is recommended in MP.
+cba_settings_hasSettingsFile = 1;
+
+respawn = "BASE";			//"BASE";
+respawnButton = 1;
+respawnOnStart = -1;
+OnLoadMission = "Добро пожаловать на REPUBLIC CHRONICLES. Приятной игры!";
+onLoadName = "The republic Chronicles";
+author = Создано при поддержке Торговой Федерации;
+//overviewText="";
+
+
+#include "external\VVS\menu.ext"   //Меню спавна техники
+#include "scripts\vehicle\crew\common.hpp"  // Худ в технике
+#include "infiSTAR_AdminMenu.hpp"
+
+//----------------------------------------------------------------------------//
+corpseManagerMode = 1;
+corpseLimit = 30;
+corpseRemovalMinTime = 100;
+corpseRemovalMaxTime = 500;
+
+wreckManagerMode = 1; //Type of removed wrecks: 0 - none, 1 - all, 2 - only respawnable, 3 - only non-respawnable
+wreckLimit = 2; //ax number of wrecks which can be available at the same time. When exceeded, start deleting immediately.
+wreckRemovalMinTime = 300;
+wreckRemovalMaxTime = 700;
+//----------------------------------------------------------------------------//
+disabledAI=1;				  // Отключение доступных для игры ИИ
+
+
+class CfgMusic
+
+{
+               tracks[] = {Frozen Night - Frozen Heart.ogg};
+               class music1
+               {
+                               name = "!Frozen Night - Frozen Heart";
+                               sound[] = {FrozenNight-FrozenHeart.ogg, db + 0, 1.0};
+               };
+};
+
+class CfgSounds
+{
+    sounds[] = {};
+    class soundFH
+    {
+        name = "!Frozen Night - Frozen Heart";
+        sound[] = {"FrozenNight-FrozenHeart.ogg", 1, 1};
+		titles[] = {};
+    };
+};
+
+
+
+
+class Header
+{
+	gameType = RPG;
+	//minPlayers = 0;
+	//maxPlayers = 105;
+};
+
+class Params
+{
+#define DAYTIMEHOUR_DEFAULT 5
+//#define WEATHER_DEFAULT  80
+//#define DEBUGCONSOLE_DEFAULT   0
+#define TIMEACCELERATION_DEFAULT  3
+
+#include "\a3\functions_f\Params\paramDaytimeHour.hpp"
+//#include "\a3\functions_f\Params\paramWeather.hpp"
+//#include "\a3\functions_f\Params\paramDebugConsole.hpp"
+#include "\a3\Functions_F_MP_Mark\Params\paramTimeAcceleration.hpp"
+};
+
+class CfgFunctions
+{
+  #include "external\VVS\Functions.ext"
+  #include "external\tts_beam\cfgFunctions.ext"
+};
+
+class RscTitles
+	{
+		#include "scripts\vehicle\crew\namesleft.hpp"	// Параметры текста для худа в технике
+	};
+
+class CfgDebriefing
+    {
+        class End1
+        {
+            title = "";
+            subtitle = "STAR WARS. The Republic Chronicles";
+            description = "";
+            pictureBackground = "";  //
+            picture = "";
+            pictureColor[] = {0.0,0.3,0.6,1};
+        };
+};
+
+class CfgConsts {
+  /* ztt_terminals[] = {"Land_OPTRE_vidphone_terminal"}; */
+};
+
+class CfgDiscordRichPresence {
+	applicationID="932092714101653515";
+	defaultDetails="the Republic Chronicles";
+	defaultState="discord.gg/krFKUNR99m";
+	defaultLargeImageKey="rpimg";
+	defaultLargeImageText="Star Wars RP";
+	defaultSmallImageKey="a3";
+	defaultSmallImageText="ArmA 3";
+	useTimeElapsed=1;
+};
